@@ -134,3 +134,17 @@ Rational::operator double() const
 	double result = numerator / denominator;
 	return result;
 }
+
+Rational Rational::operator--(int garbage)
+{
+	Rational result = *this;
+	numerator -= denominator;
+	Reduce();
+	return result;
+}
+
+const Rational operator* (const long lValue, const Rational & rValue)
+{
+	Rational lValueConverted = Rational(lValue);
+	return lValueConverted * rValue;
+}
