@@ -167,9 +167,10 @@ const Rational Rational::operator^(const Rational& rValue) const
 {
 	Rational result = *this;
 
-	result = result ^ rValue.getNumerator;
-	result = std::pow(result, (1.0 / rValue.getDenominator));
+	result = result ^ rValue.getNumerator();
+	result.numerator = std::pow(result.getNumerator(), (1.0 / rValue.getDenominator())) * 1000000000000000;
+	result.denominator = std::pow(result.getDenominator(), (1.0 / rValue.getDenominator())) * 1000000000000000;
 	
+	result.Reduce();
 	return result;
-
 }
