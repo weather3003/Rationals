@@ -13,26 +13,26 @@ public:
 	const Rational & operator=(const Rational & rValue);
 	bool operator==(const Rational& rValue) const;
 	bool operator>(const Rational& rValue) const;
-	bool operator<(const Rational& rValue) const;
-	bool operator>=(const Rational& rValue) const;
+	bool operator<(const Rational& rValue) const; //Daryl
+	bool operator>=(const Rational& rValue) const; //Daryl
 	bool operator<=(const Rational& rValue) const;
-	bool operator!=(const Rational& rValue) const;
+	bool operator!=(const Rational& rValue) const; //Daryl
 	const Rational operator+ (const Rational& rValue) const;
-	const Rational operator- (const Rational& rValue) const;
+	const Rational operator- (const Rational& rValue) const; //Daryl 
 	const Rational operator* (const Rational& rValue) const;
 	const Rational operator/ (const Rational& rValue) const;
 	const Rational operator^(long rValue) const; //whole power
-	const Rational operator^(const Rational& rValue) const; //Rational^ (optional)
+	const Rational operator^(const Rational& rValue) const; //Rational^ (optional) //Daryl
 	Rational& operator+= (const Rational& rValue);
 	Rational& operator-= (const Rational& rValue);
-	Rational& operator*= (const Rational& rValue);
+	Rational& operator*= (const Rational& rValue); //Daryl
 	Rational& operator/= (const Rational& rValue);
 	string operator()() const;
-	operator double() const;
+	operator double() const; //Daryl
 	Rational& operator++();
 	Rational& operator--();
 	Rational operator++(int garbage);
-	Rational operator--(int garbage);
+	Rational operator--(int garbage); //Daryl
 	long getNumerator()const;
 	long getDenominator()const;
 private:
@@ -45,9 +45,9 @@ private:
 };
 //prototypes for non-member methods
 ostream &operator<<(ostream&, const Rational& Fraction);
-istream &operator>>(istream&, Rational& Fraction);
+istream &operator>>(istream&, Rational& Fraction); //Daryl
 const Rational operator+ (const long lValue, const Rational & rValue);
 const Rational operator- (const long lValue, const Rational & rValue);
-const Rational operator* (const long lValue, const Rational & rValue);
+const Rational operator* (const long lValue, const Rational & rValue); //Daryl
 const Rational operator/ (const long lValue, const Rational & rValue);
 #endif

@@ -96,3 +96,17 @@ void Rational::Reduce()
 	numerator = numerator / GCD;
 	denominator = denominator / GCD;
 }
+
+const Rational Rational::operator- (const Rational& rValue) const
+{
+	long lcm = LeastCommonMultiple(rValue.denominator, denominator);
+	long resultNumerator = (numerator * (lcm / denominator)) -
+		(rValue.numerator * (lcm / rValue.denominator));
+	Rational result(resultNumerator, lcm);
+	return result;
+}
+
+bool Rational::operator<(const Rational& rValue) const
+{
+
+}
