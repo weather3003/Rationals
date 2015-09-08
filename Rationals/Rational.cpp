@@ -128,3 +128,9 @@ Rational& Rational::operator*= (const Rational& rValue)
 	Reduce();
 	return *this;
 }
+
+Rational::operator double() const
+{
+	double result = numerator / denominator;
+	return result;
+}
