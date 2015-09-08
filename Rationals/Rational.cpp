@@ -108,5 +108,6 @@ const Rational Rational::operator- (const Rational& rValue) const
 
 bool Rational::operator<(const Rational& rValue) const
 {
-
+	Rational comparison = *this - rValue;
+	return comparison.numerator < 0;
 }
