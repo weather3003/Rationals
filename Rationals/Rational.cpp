@@ -121,3 +121,10 @@ bool Rational::operator!=(const Rational& rValue) const
 {
 	return !(*this == rValue);
 }
+
+Rational& Rational::operator*= (const Rational& rValue)
+{
+	*this = *this * rValue;
+	Reduce();
+	return *this;
+}
