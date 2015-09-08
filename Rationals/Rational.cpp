@@ -148,3 +148,16 @@ const Rational operator* (const long lValue, const Rational & rValue)
 	Rational lValueConverted = Rational(lValue);
 	return lValueConverted * rValue;
 }
+
+
+istream &operator>>(istream& in, Rational& Fraction)
+{
+	int newNumerator = 0; int newDenominator = 1;
+	in >> newNumerator;
+	in.get();
+	in >> newDenominator;
+	Rational newRational(newNumerator, newDenominator);
+	Fraction = newRational;
+
+	return in;
+}
