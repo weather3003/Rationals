@@ -116,3 +116,8 @@ bool Rational::operator>=(const Rational& rValue) const
 {
 	return !(*this < rValue);
 }
+
+bool Rational::operator!=(const Rational& rValue) const
+{
+	return !(*this == rValue);
+}
