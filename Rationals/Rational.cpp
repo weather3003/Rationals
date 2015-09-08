@@ -1,6 +1,7 @@
 //Rational.cpp
 #include"Rational.h"
 #include<sstream>
+#include<math.h>
 Rational::Rational(long NewNumerator, long NewDenominator)
 {
 	numerator = NewNumerator;
@@ -160,4 +161,15 @@ istream &operator>>(istream& in, Rational& Fraction)
 	Fraction = newRational;
 
 	return in;
+}
+
+const Rational Rational::operator^(const Rational& rValue) const
+{
+	Rational result = *this;
+
+	result = result ^ rValue.getNumerator;
+	result = std::pow(result, (1.0 / rValue.getDenominator));
+	
+	return result;
+
 }
