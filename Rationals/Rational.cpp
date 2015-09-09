@@ -174,3 +174,81 @@ const Rational Rational::operator^(const Rational& rValue) const
 	result.Reduce();
 	return result;
 }
+
+
+
+
+
+//JME Stuff
+
+bool Rational::operator>(const Rational& rValue) const
+{
+	bool result = false;
+	long LCM = LeastCommonMultiple(denominator, rValue.getDenominator());
+	if (numerator*(LCM / denominator) > rValue.getNumerator()*(LCM / rValue.getDenominator()))
+	{
+		result = true;
+	}
+	return result;
+}
+
+bool Rational::operator<=(const Rational& rValue) const
+{
+	return !(*this > rValue);
+}
+
+const Rational Rational::operator*(const Rational& rValue) const
+{
+	Rational result((numerator*rValue.getNumerator()), (denominator*rValue.getDenominator()));
+	result.Reduce();
+	return result;
+}
+
+const Rational Rational::operator/(const Rational& rValue) const
+{
+	Rational reciprocal(rValue.getDenominator(), rValue.getNumerator());
+	Rational result = *this * reciprocal;
+	result.Reduce();
+	return result;
+}
+
+const Rational Rational::operator^(long rValue) const
+{
+	Rational result(numerator*rValue, denominator*rValue);
+	result.Reduce();
+	return result;
+}
+
+Rational& Rational::operator-= (const Rational& rValue)
+{
+	*this = *this - rValue;
+	Reduce();
+	return *this;
+}
+
+Rational& Rational::operator/= (const Rational& rValue)
+{
+	*this = *this / rValue;
+	Reduce();
+	return *this;
+}
+Rational& Rational::operator--()
+{
+	numerator -= denominator;
+	Reduce();
+	return *this;
+}
+
+const Rational operator- (const long lValue, const Rational & rValue)
+{
+	Rational LValue(lValue);
+
+	return (LValue - rValue);
+}
+
+const Rational operator/ (const long lValue, const Rational & rValue)
+{
+	Rational LValue(lValue);
+
+	return (LValue / rValue);
+}
