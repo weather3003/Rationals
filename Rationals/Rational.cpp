@@ -132,7 +132,7 @@ Rational& Rational::operator*= (const Rational& rValue)
 
 Rational::operator double() const
 {
-	double result = numerator / denominator;
+	double result = (numerator*1.0) / denominator;
 	return result;
 }
 
